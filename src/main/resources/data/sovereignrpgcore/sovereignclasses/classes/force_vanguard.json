@@ -1,0 +1,47 @@
+{
+  "name": "Force Vanguard",
+  "description": "A brawler who fights with knuckles and gauntlets, trading blows toe to toe.",
+  "order": 4,
+  "tags": [
+    "melee",
+    "brawler"
+  ],
+  "icon": "minecraft:iron_boots",
+  "attributes": [
+    {
+      "attribute": "minecraft:generic.max_health",
+      "amount": -0.15,
+      "operation": "multiply_base"
+    }
+  ],
+  "kit": [],
+  "abilities": [
+    {
+      "name": "Marked Prey",
+      "description": "Your first hit marks a target (within 30 blocks, 30 s cooldown): +50% damage against it. Unmarked targets take 15% less. When the marked target dies, the mark jumps to a nearby enemy.",
+      "type": "mark",
+      "params": {
+        "range": 30,
+        "cooldown": 30,
+        "seconds": 20,
+        "marked_bonus": 50,
+        "unmarked_penalty": -15,
+        "spread_radius": 12
+      }
+    }
+  ],
+  "effects": [],
+  "commands": [],
+  "weapon_other": -50,
+  "weapons": [
+    {
+      "type": "fist",
+      "percent": 0
+    },
+    {
+      "type": "unarmed",
+      "percent": 0
+    }
+  ],
+  "rules": []
+}

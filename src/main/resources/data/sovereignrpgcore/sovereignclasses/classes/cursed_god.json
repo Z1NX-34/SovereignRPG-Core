@@ -1,0 +1,24 @@
+{
+  "name": "Cursed God",
+  "description": "Chosen of the Seven Curses. Wields any weapon with 20% more effect.",
+  "order": 13,
+  "tags": [
+    "divine"
+  ],
+  "icon": "minecraft:nether_star",
+  "attributes": [],
+  "kit": [],
+  "abilities": [
+    {
+      "name": "Burden of Gods",
+      "description": "Comes with the Ring of the Seven Curses already worn. Every weapon type is 20% more effective."
+    }
+  ],
+  "effects": [],
+  "commands": [
+    "curios replace ring 0 @s with enigmaticlegacy:cursed_ring"
+  ],
+  "weapon_other": 20,
+  "weapons": [],
+  "rules": []
+}

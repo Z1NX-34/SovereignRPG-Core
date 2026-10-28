@@ -1,0 +1,18 @@
+{
+  "name": "Human",
+  "description": "Adaptable and resilient. Humans may follow any path.",
+  "order": 1,
+  "attributes": [],
+  "kit": [],
+  "abilities": [],
+  "effects": [],
+  "commands": [],
+  "allowed_classes": [
+    "peasant",
+    "rogue",
+    "forgotten_knight",
+    "marksman",
+    "titan",
+    "force_vanguard"
+  ]
+}

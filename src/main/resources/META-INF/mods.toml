@@ -1,0 +1,30 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="sovereignrpgcore"
+version="1.0.0"
+displayName="SovereignRPG Core"
+description='''Modpack core for Sovereign: extra classes and races, plus optional integrations.'''
+
+[[dependencies.sovereignrpgcore]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.sovereignrpgcore]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.sovereignrpgcore]]
+modId="sovereignclasses"
+mandatory=true
+versionRange="[1.0.0,)"
+ordering="AFTER"
+side="BOTH"

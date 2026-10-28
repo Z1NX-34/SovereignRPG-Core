@@ -1,0 +1,11 @@
+{
+  "sovereignrpgcore.difficulty.selected": "Selected: %s",
+  "sovereignrpgcore.difficulty.casual.name": "Novice",
+  "sovereignrpgcore.difficulty.casual.desc": "The gentlest road.|Edit this text in the lang file.",
+  "sovereignrpgcore.difficulty.normal.name": "Base",
+  "sovereignrpgcore.difficulty.normal.desc": "The standard experience.|Edit this text in the lang file.",
+  "sovereignrpgcore.difficulty.expert.name": "Master",
+  "sovereignrpgcore.difficulty.expert.desc": "A real challenge.|Edit this text in the lang file.",
+  "sovereignrpgcore.difficulty.malice.name": "GrandMaster",
+  "sovereignrpgcore.difficulty.malice.desc": "No mercy.|Edit this text in the lang file."
+}
