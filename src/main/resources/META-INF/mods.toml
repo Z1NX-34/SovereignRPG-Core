@@ -28,3 +28,10 @@ mandatory=true
 versionRange="[1.0.0,)"
 ordering="AFTER"
 side="BOTH"
+
+[[dependencies.sovereignrpgcore]]
+modId="truedifficultyscale"
+mandatory=false
+versionRange="[0,)"
+ordering="AFTER"
+side="CLIENT"
