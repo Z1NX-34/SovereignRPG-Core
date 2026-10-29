@@ -73,11 +73,6 @@ public final class DifficultyScreenTweaks {
             AbstractWidget w = widget(s, b[0]);
             if (w == null || !w.visible) continue;
             if (b[1].equals(selected)) g.renderOutline(w.getX() - 2, w.getY() - 2, w.getWidth() + 4, w.getHeight() + 4, 0xFFFFD84A);
-            String tag = Component.translatable("sovereignrpgcore.difficulty." + b[1] + ".tag").getString();
-            if (!tag.isEmpty()) {
-                int col = b[1].equals("malice") ? 0xFFFF5555 : 0xFF55FF55;
-                g.drawCenteredString(font, tag, w.getX() + w.getWidth() / 2, w.getY() + w.getHeight() + 2, col);
-            }
             if (tip == null && w.isMouseOver(mx, my)) {
                 tip = new ArrayList<>();
                 tip.add(Component.translatable("sovereignrpgcore.difficulty." + b[1] + ".name").withStyle(st -> st.withBold(true)));
@@ -86,10 +81,16 @@ public final class DifficultyScreenTweaks {
             }
         }
         if (selected != null && s instanceof AbstractContainerScreen<?> cs) {
-            g.drawCenteredString(font, Component.translatable("sovereignrpgcore.difficulty.warning"), cs.getGuiLeft() - 10, cs.getGuiTop() + 31, 0xFFFFFFFF);
             Component t = Component.translatable("sovereignrpgcore.difficulty.selected",
                 Component.translatable("sovereignrpgcore.difficulty." + selected + ".name"));
-            g.drawCenteredString(font, t, cs.getGuiLeft(), cs.getGuiTop() + 66, 0xFFFFD84A);
+            // fitted to the panel, so any font (Modern UI etc.) stays inside the frame
+            int maxW = 330, w = font.width(t);
+            float sc = w > maxW ? (float) maxW / w : 1f;
+            g.pose().pushPose();
+            g.pose().translate(cs.getGuiLeft(), cs.getGuiTop() + 31, 0);
+            g.pose().scale(sc, sc, 1f);
+            g.drawString(font, t, -w / 2, 0, 0xFFFFD84A, true);
+            g.pose().popPose();
         }
         if (tip != null) g.renderComponentTooltip(font, tip, mx, my);
     }

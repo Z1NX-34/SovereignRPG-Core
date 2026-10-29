@@ -1,16 +1,11 @@
 {
-  "sovereignrpgcore.difficulty.selected": "Selected: %s",
-  "sovereignrpgcore.difficulty.warning": "Are you sure? This action cannot be undone.",
+  "sovereignrpgcore.difficulty.selected": "Selected: %s - this cannot be undone",
   "sovereignrpgcore.difficulty.casual.name": "Novice",
-  "sovereignrpgcore.difficulty.casual.tag": "",
   "sovereignrpgcore.difficulty.casual.desc": "The gentlest road.|Edit this text in the lang file.",
   "sovereignrpgcore.difficulty.normal.name": "Adept",
-  "sovereignrpgcore.difficulty.normal.tag": "(Recommended)",
   "sovereignrpgcore.difficulty.normal.desc": "The standard experience.|Edit this text in the lang file.",
   "sovereignrpgcore.difficulty.expert.name": "Champion",
-  "sovereignrpgcore.difficulty.expert.tag": "",
   "sovereignrpgcore.difficulty.expert.desc": "A real challenge.|Edit this text in the lang file.",
   "sovereignrpgcore.difficulty.malice.name": "Sovereign",
-  "sovereignrpgcore.difficulty.malice.tag": "(Not Recommended)",
   "sovereignrpgcore.difficulty.malice.desc": "No mercy.|Edit this text in the lang file."
 }
