@@ -1,5 +1,6 @@
 package com.sovereignrpg.core.client;
 
+import com.mojang.blaze3d.systems.RenderSystem;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,7 @@ import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -72,7 +74,13 @@ public final class DifficultyScreenTweaks {
         for (String[] b : BUTTONS) {
             AbstractWidget w = widget(s, b[0]);
             if (w == null || !w.visible) continue;
-            if (b[1].equals(selected)) g.renderOutline(w.getX() - 2, w.getY() - 2, w.getWidth() + 4, w.getHeight() + 4, 0xFFFFD84A);
+            if (b[1].equals(selected)) {
+                // gold outline that follows the icon's own shape (pre-made image, transparent inside)
+                RenderSystem.enableBlend();
+                RenderSystem.defaultBlendFunc();
+                g.blit(new ResourceLocation("sovereignrpgcore", "textures/gui/sel_" + b[1] + ".png"), w.getX(), w.getY(), 0, 0, 100, 100, 100, 100);
+                RenderSystem.disableBlend();
+            }
             if (tip == null && w.isMouseOver(mx, my)) {
                 tip = new ArrayList<>();
                 tip.add(Component.translatable("sovereignrpgcore.difficulty." + b[1] + ".name").withStyle(st -> st.withBold(true)));
