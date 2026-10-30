@@ -18,7 +18,8 @@ public final class DifficultyChat {
     @SubscribeEvent
     public static void onChat(ClientChatReceivedEvent e) {
         if (!ModList.get().isLoaded("truedifficultyscale")) return;
-        String t = e.getMessage().getString();
+        // the mod writes colour codes (§d...) into the text itself, so strip them before comparing
+        String t = net.minecraft.ChatFormatting.stripFormatting(e.getMessage().getString());
         String name = null;
         String color = null;
         if (t.equals("Casual Mode has been activated!")) { name = "Novice"; color = "§a"; }
