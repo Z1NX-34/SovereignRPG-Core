@@ -1,11 +1,15 @@
 {
   "sovereignrpgcore.difficulty.selected": "Selected: %s - this cannot be undone",
   "sovereignrpgcore.difficulty.casual.name": "Novice",
-  "sovereignrpgcore.difficulty.casual.desc": "The gentlest road.|Edit this text in the lang file.",
+  "sovereignrpgcore.difficulty.casual.desc": "The gentlest road.",
   "sovereignrpgcore.difficulty.normal.name": "Adept",
-  "sovereignrpgcore.difficulty.normal.desc": "The standard experience.|Edit this text in the lang file.",
+  "sovereignrpgcore.difficulty.normal.desc": "The intended experience.",
   "sovereignrpgcore.difficulty.expert.name": "Champion",
-  "sovereignrpgcore.difficulty.expert.desc": "A real challenge.|Edit this text in the lang file.",
+  "sovereignrpgcore.difficulty.expert.desc": "A real challenge.",
   "sovereignrpgcore.difficulty.malice.name": "Sovereign",
-  "sovereignrpgcore.difficulty.malice.desc": "No mercy.|Edit this text in the lang file."
+  "sovereignrpgcore.difficulty.malice.desc": "No mercy.",
+  "sovereignrpgcore.difficulty.casual.tag": "Good for beginners",
+  "sovereignrpgcore.difficulty.normal.tag": "Balanced - recommended",
+  "sovereignrpgcore.difficulty.expert.tag": "For experienced players",
+  "sovereignrpgcore.difficulty.malice.tag": "Only for veterans"
 }

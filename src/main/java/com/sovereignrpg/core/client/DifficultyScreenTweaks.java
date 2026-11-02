@@ -4,6 +4,8 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import com.sovereignrpg.core.CoreConfig;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
@@ -84,8 +86,9 @@ public final class DifficultyScreenTweaks {
             if (tip == null && w.isMouseOver(mx, my)) {
                 tip = new ArrayList<>();
                 tip.add(Component.translatable("sovereignrpgcore.difficulty." + b[1] + ".name").withStyle(st -> st.withBold(true)));
-                String desc = Component.translatable("sovereignrpgcore.difficulty." + b[1] + ".desc").getString();
-                for (String line : desc.split("\\|")) tip.add(Component.literal(line.trim()));
+                tip.add(Component.translatable("sovereignrpgcore.difficulty." + b[1] + ".desc").withStyle(ChatFormatting.GRAY));
+                tip.addAll(effects(b[1]));
+                tip.add(Component.translatable("sovereignrpgcore.difficulty." + b[1] + ".tag").withStyle(tagColor(b[1])));
             }
         }
         if (selected != null && s instanceof AbstractContainerScreen<?> cs) {
@@ -101,5 +104,49 @@ public final class DifficultyScreenTweaks {
             g.pose().popPose();
         }
         if (tip != null) g.renderComponentTooltip(font, tip, mx, my);
+    }
+
+    private static ChatFormatting tagColor(String k) {
+        return switch (k) {
+            case "casual" -> ChatFormatting.GREEN;
+            case "normal" -> ChatFormatting.AQUA;
+            case "expert" -> ChatFormatting.GOLD;
+            default -> ChatFormatting.DARK_RED;
+        };
+    }
+
+    private static String num(double v) {
+        return Math.abs(v - Math.rint(v)) < 0.001 ? String.valueOf((long) Math.rint(v)) : String.valueOf(Math.round(v * 10) / 10.0);
+    }
+
+    private static int pct(double v) { return (int) Math.round(Math.abs(v) * 100); }
+
+    /** The real numbers, read from Core's config, so the text can never disagree with what the difficulty does. */
+    private static List<Component> effects(String k) {
+        List<Component> l = new ArrayList<>();
+        CoreConfig.Mode m = CoreConfig.mode(k);
+        if (m == null) {
+            l.add(Component.literal("Vanilla damage both ways.").withStyle(ChatFormatting.GREEN));
+            l.add(Component.literal("No bonuses, no penalties.").withStyle(ChatFormatting.GREEN));
+            return l;
+        }
+        double t = m.taken.get(), d = m.dealt.get();
+        if (t < 1) l.add(Component.literal("You take " + pct(1 - t) + "% less damage.").withStyle(ChatFormatting.GREEN));
+        else if (t > 1) l.add(Component.literal("You take " + num(t) + "x damage.").withStyle(ChatFormatting.RED));
+        if (d < 1) l.add(Component.literal("You deal " + pct(1 - d) + "% less damage.").withStyle(ChatFormatting.RED));
+        else if (d > 1) l.add(Component.literal("You deal " + pct(d - 1) + "% more damage.").withStyle(ChatFormatting.GREEN));
+        mob(l, "health", m.mobHealth.get());
+        mob(l, "damage", m.mobDamage.get());
+        mob(l, "speed", m.mobSpeed.get());
+        double a = m.mobArmor.get();
+        if (a != 0) l.add(Component.literal("Enemies have " + (a > 0 ? "+" : "-") + num(Math.abs(a)) + " armor.").withStyle(a > 0 ? ChatFormatting.RED : ChatFormatting.GREEN));
+        double x = m.mobExp.get();
+        if (x != 1) l.add(Component.literal("Enemies drop " + pct(x) + "% XP.").withStyle(x > 1 ? ChatFormatting.GREEN : ChatFormatting.RED));
+        return l;
+    }
+
+    private static void mob(List<Component> l, String what, double v) {
+        if (v == 0) return;
+        l.add(Component.literal("Enemies have " + (v > 0 ? "+" : "-") + pct(v) + "% " + what + ".").withStyle(v > 0 ? ChatFormatting.RED : ChatFormatting.GREEN));
     }
 }
