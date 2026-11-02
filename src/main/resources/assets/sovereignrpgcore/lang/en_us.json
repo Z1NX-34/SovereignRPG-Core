@@ -11,5 +11,8 @@
   "sovereignrpgcore.difficulty.casual.tag": "Good for beginners",
   "sovereignrpgcore.difficulty.normal.tag": "Balanced - recommended",
   "sovereignrpgcore.difficulty.expert.tag": "For experienced players",
-  "sovereignrpgcore.difficulty.malice.tag": "Only for veterans"
+  "sovereignrpgcore.difficulty.malice.tag": "Only for veterans",
+  "item.sovereignrpgcore.template_ascension": "Template of Ascension",
+  "item.sovereignrpgcore.template_desecration": "Template of Desecration",
+  "itemGroup.sovereignrpgcore.regalia": "Sovereign Regalia"
 }

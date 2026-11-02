@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "DTD",
+    "DMD",
+    "DDD"
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "T": {
+      "item": "sovereignrpgcore:template_desecration"
+    },
+    "M": {
+      "item": "minecraft:crying_obsidian"
+    }
+  },
+  "result": {
+    "item": "sovereignrpgcore:template_desecration",
+    "count": 2
+  }
+}
