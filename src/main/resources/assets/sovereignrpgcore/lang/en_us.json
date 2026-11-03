@@ -14,5 +14,6 @@
   "sovereignrpgcore.difficulty.malice.tag": "Only for veterans",
   "item.sovereignrpgcore.template_ascension": "Template of Ascension",
   "item.sovereignrpgcore.template_desecration": "Template of Desecration",
-  "itemGroup.sovereignrpgcore.regalia": "Sovereign Regalia"
+  "itemGroup.sovereignrpgcore.regalia": "Sovereign Regalia",
+  "block.sovereignrpgcore.ruined_forge": "Ruined Forge"
 }

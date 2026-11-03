@@ -1,0 +1,1 @@
+{"parent": "minecraft:block/orientable_with_bottom", "textures": {"top": "sovereignrpgcore:block/ruined_forge_top", "bottom": "sovereignrpgcore:block/ruined_forge_bottom", "side": "sovereignrpgcore:block/ruined_forge_side", "front": "sovereignrpgcore:block/ruined_forge_front"}}

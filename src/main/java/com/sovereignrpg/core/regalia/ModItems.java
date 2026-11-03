@@ -31,6 +31,8 @@ public final class ModItems {
 
     public static final RegistryObject<Item> PERSEVERANCE = ITEMS.register("regalia_perseverance", () -> new RegaliaItem(RegaliaItem.Kind.PERSEVERANCE));
     public static final RegistryObject<Item> EMPTY = ITEMS.register("regalia_empty", () -> new RegaliaItem(RegaliaItem.Kind.EMPTY));
+    public static final RegistryObject<Item> FORGE_ITEM = ITEMS.register("ruined_forge",
+        () -> new net.minecraft.world.item.BlockItem(com.sovereignrpg.core.forge.ModForge.BLOCK.get(), new Item.Properties()));
     public static final RegistryObject<Item> ADDITION = ITEMS.register("regalia_addition", () -> new RegaliaItem(RegaliaItem.Kind.ADDITION));
 
     private static Component gold(String s) {
@@ -74,6 +76,7 @@ public final class ModItems {
         .title(Component.literal("Sovereign Regalia"))
         .icon(() -> new ItemStack(ORBS.get(2).get()))
         .displayItems((p, out) -> {
+            out.accept(FORGE_ITEM.get());
             out.accept(TEMPLATE_ASCENSION.get());
             out.accept(TEMPLATE_DESECRATION.get());
             for (RegistryObject<Item> o : ORBS) out.accept(o.get());
@@ -91,5 +94,6 @@ public final class ModItems {
         ITEMS.register(bus);
         TABS.register(bus);
         SERIALIZERS.register(bus);
+        com.sovereignrpg.core.forge.ModForge.register(bus);
     }
 }

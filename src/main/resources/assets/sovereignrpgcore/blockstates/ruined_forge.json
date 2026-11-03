@@ -1,0 +1,1 @@
+{"variants": {"facing=north": {"model": "sovereignrpgcore:block/ruined_forge"}, "facing=east": {"model": "sovereignrpgcore:block/ruined_forge", "y": 90}, "facing=south": {"model": "sovereignrpgcore:block/ruined_forge", "y": 180}, "facing=west": {"model": "sovereignrpgcore:block/ruined_forge", "y": 270}}}
