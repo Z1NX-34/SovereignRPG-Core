@@ -30,6 +30,7 @@ public final class ModItems {
     private static final String[] TIER_IDS = {"lesser", "greater", "eternal"};
 
     public static final RegistryObject<Item> PERSEVERANCE = ITEMS.register("regalia_perseverance", () -> new RegaliaItem(RegaliaItem.Kind.PERSEVERANCE));
+    public static final RegistryObject<Item> EMPTY = ITEMS.register("regalia_empty", () -> new RegaliaItem(RegaliaItem.Kind.EMPTY));
     public static final RegistryObject<Item> ADDITION = ITEMS.register("regalia_addition", () -> new RegaliaItem(RegaliaItem.Kind.ADDITION));
 
     private static Component gold(String s) {
@@ -48,9 +49,9 @@ public final class ModItems {
         icons("item/empty_armor_slot_chestplate", "item/empty_slot_sword"), icons("item/empty_slot_diamond")));
 
     public static final RegistryObject<Item> TEMPLATE_DESECRATION = ITEMS.register("template_desecration", () -> new SmithingTemplateItem(
-        gold("Socketed weapons, armor and curios"), gold("Amethyst Shard"), gold("Template of Desecration"),
-        gold("Add an item with regalia in its Vessels"), gold("Add an Amethyst Shard"),
-        icons("item/empty_armor_slot_chestplate", "item/empty_slot_sword"), icons("item/empty_slot_amethyst_shard")));
+        gold("Socketed weapons, armor and curios"), gold("Empty Regalia"), gold("Template of Desecration"),
+        gold("Add an item with regalia in its Vessels"), gold("Add an Empty Regalia"),
+        icons("item/empty_armor_slot_chestplate", "item/empty_slot_sword"), icons("item/empty_slot_diamond")));
 
     public static final RegistryObject<RecipeSerializer<?>> SOCKET_SERIALIZER =
         SERIALIZERS.register("regalia_socket", () -> new RegaliaRecipes.Ser<>(RegaliaRecipes.Socket::new));
@@ -64,6 +65,7 @@ public final class ModItems {
                 ORBS.add(ITEMS.register("regalia_" + r.id + "_" + TIER_IDS[t - 1], () -> new RegaliaItem(r, tier)));
             }
         }
+        ORBS.add(EMPTY);
         ORBS.add(PERSEVERANCE);
         ORBS.add(ADDITION);
     }
@@ -76,6 +78,14 @@ public final class ModItems {
             out.accept(TEMPLATE_DESECRATION.get());
             for (RegistryObject<Item> o : ORBS) out.accept(o.get());
         }).build());
+
+    /** The orb for a regalia id and tier, or null. */
+    public static Item orb(String id, int tier) {
+        for (RegistryObject<Item> o : ORBS) {
+            if (o.get() instanceof RegaliaItem ri && ri.kind == RegaliaItem.Kind.NORMAL && ri.regalia.id.equals(id) && ri.tier == tier) return ri;
+        }
+        return null;
+    }
 
     public static void register(IEventBus bus) {
         ITEMS.register(bus);

@@ -15,7 +15,7 @@ public class RegaliaItem extends Item {
     public static final int[] TIER_COLORS = {0xFFFFFF, 0xFF55FF, 0xFFAA00};
     public static final int PERSEVERANCE_COLOR = 0xFFC832, ADDITION_COLOR = 0xCD7F32;
 
-    public enum Kind { NORMAL, PERSEVERANCE, ADDITION }
+    public enum Kind { NORMAL, PERSEVERANCE, ADDITION, EMPTY }
 
     public final Kind kind;
     public final Regalia regalia;
@@ -41,6 +41,7 @@ public class RegaliaItem extends Item {
             case NORMAL -> col("Regalia of " + regalia.name, regalia.color);
             case PERSEVERANCE -> col("Regalia of Perseverance", PERSEVERANCE_COLOR);
             case ADDITION -> col("Regalia of Addition", ADDITION_COLOR);
+            case EMPTY -> col("Empty Regalia", 0xA0A0B0);
         };
     }
 
@@ -61,6 +62,12 @@ public class RegaliaItem extends Item {
                 tip.add(col("Apply to any item with durability:", 0x5555FF));
                 tip.add(col("It becomes unbreakable. Uses no Vessel.", 0x55FF55));
             }
+            case EMPTY -> {
+                tip.add(col("Smithing table with a Template of Desecration", 0x555555));
+                tip.add(Component.empty());
+                tip.add(col("Pulls the last socketed regalia out of an item", 0x5555FF));
+                tip.add(col("and becomes that regalia.", 0x55FF55));
+            }
             case ADDITION -> {
                 tip.add(col("Eternal", TIER_COLORS[2]));
                 tip.add(Component.empty());
@@ -71,5 +78,5 @@ public class RegaliaItem extends Item {
     }
 
     @Override
-    public boolean isFoil(ItemStack s) { return tier == 3 || kind != Kind.NORMAL; }
+    public boolean isFoil(ItemStack s) { return tier == 3 || kind == Kind.PERSEVERANCE || kind == Kind.ADDITION; }
 }

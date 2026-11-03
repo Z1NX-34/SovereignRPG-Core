@@ -187,6 +187,30 @@ public final class RegaliaEvents {
         } catch (Throwable ignored) { }
     }
 
+    // ---------- Desecration: hand the removed regalia back ----------
+
+    @SubscribeEvent
+    public static void onPlayerTick(net.minecraftforge.event.TickEvent.PlayerTickEvent e) {
+        if (e.phase != net.minecraftforge.event.TickEvent.Phase.END || e.player.level().isClientSide || e.player.tickCount % 2 != 0) return;
+        Player p = e.player;
+        var inv = p.getInventory();
+        for (int i = 0; i < inv.getContainerSize(); i++) giveBack(p, inv.getItem(i));
+        giveBack(p, p.containerMenu.getCarried());
+    }
+
+    private static void giveBack(Player p, ItemStack s) {
+        if (s.isEmpty() || s.getTag() == null || !s.getTag().contains(RegaliaRecipes.RETURN)) return;
+        String v = s.getTag().getString(RegaliaRecipes.RETURN);
+        s.getTag().remove(RegaliaRecipes.RETURN);
+        if (s.getTag().isEmpty()) s.setTag(null);
+        int k = v.lastIndexOf(':');
+        if (k < 0) return;
+        net.minecraft.world.item.Item orb = ModItems.orb(v.substring(0, k), Integer.parseInt(v.substring(k + 1)));
+        if (orb == null) return;
+        ItemStack back = new ItemStack(orb);
+        if (!p.getInventory().add(back)) p.drop(back, false);
+    }
+
     // ---------- tooltips ----------
 
     private static Component col(String s, int rgb) {

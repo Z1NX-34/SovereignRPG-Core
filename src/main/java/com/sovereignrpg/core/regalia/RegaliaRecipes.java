@@ -7,7 +7,6 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SmithingRecipe;
@@ -17,10 +16,14 @@ import net.minecraft.world.level.Level;
 public final class RegaliaRecipes {
     private RegaliaRecipes() {}
 
+    public static final String RETURN = "SovReturn";
+
     /** Can this regalia be applied to this item right now? */
     public static boolean canApply(ItemStack base, RegaliaItem ri) {
         if (base.isEmpty()) return false;
         switch (ri.kind) {
+            case EMPTY:
+                return false;
             case PERSEVERANCE:
                 return base.isDamageableItem() && !(base.getTag() != null && base.getTag().getBoolean("Unbreakable"));
             case ADDITION:
@@ -71,7 +74,7 @@ public final class RegaliaRecipes {
         public Desecrate(ResourceLocation id) { super(id); }
         @Override public boolean isTemplateIngredient(ItemStack s) { return s.is(ModItems.TEMPLATE_DESECRATION.get()); }
         @Override public boolean isBaseIngredient(ItemStack s) { return !RegaliaData.entries(s).isEmpty(); }
-        @Override public boolean isAdditionIngredient(ItemStack s) { return s.is(Items.AMETHYST_SHARD); }
+        @Override public boolean isAdditionIngredient(ItemStack s) { return s.getItem() instanceof RegaliaItem ri && ri.kind == RegaliaItem.Kind.EMPTY; }
 
         @Override public boolean matches(Container c, Level l) {
             return isTemplateIngredient(c.getItem(0)) && isBaseIngredient(c.getItem(1)) && isAdditionIngredient(c.getItem(2));
@@ -80,7 +83,9 @@ public final class RegaliaRecipes {
         @Override public ItemStack assemble(Container c, RegistryAccess r) {
             ItemStack out = c.getItem(1).copy();
             out.setCount(1);
-            RegaliaData.clear(out);
+            RegaliaData.Entry gone = RegaliaData.removeLast(out);
+            // picked up and turned into the orb by RegaliaEvents.onPlayerTick once the player takes the result
+            if (gone != null) out.getOrCreateTag().putString(RETURN, gone.id() + ":" + gone.tier());
             return out;
         }
 

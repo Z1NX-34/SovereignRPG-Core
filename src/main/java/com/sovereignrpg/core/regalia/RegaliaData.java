@@ -53,6 +53,18 @@ public final class RegaliaData {
         t.put(LIST, l);
     }
 
+    /** Removes the most recently added regalia and returns it, or null if there is none. */
+    public static Entry removeLast(ItemStack s) {
+        CompoundTag t = s.getTag();
+        if (t == null || !t.contains(LIST, Tag.TAG_LIST)) return null;
+        ListTag l = t.getList(LIST, Tag.TAG_COMPOUND);
+        if (l.isEmpty()) return null;
+        CompoundTag c = l.getCompound(l.size() - 1);
+        Entry e = new Entry(c.getString("id"), c.getInt("tier"));
+        l.remove(l.size() - 1);
+        return e;
+    }
+
     public static void clear(ItemStack s) {
         if (s.getTag() != null) s.getTag().remove(LIST);
     }
