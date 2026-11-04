@@ -1,1 +1,307 @@
-{"parent": "minecraft:block/orientable_with_bottom", "textures": {"top": "sovereignrpgcore:block/ruined_forge_top", "bottom": "sovereignrpgcore:block/ruined_forge_bottom", "side": "sovereignrpgcore:block/ruined_forge_side", "front": "sovereignrpgcore:block/ruined_forge_front"}}
+{
+ "parent": "minecraft:block/block",
+ "textures": {
+  "particle": "sovereignrpgcore:block/ruined_forge_side",
+  "side": "sovereignrpgcore:block/ruined_forge_side",
+  "front": "sovereignrpgcore:block/ruined_forge_front",
+  "bottom": "sovereignrpgcore:block/ruined_forge_bottom",
+  "plate": "sovereignrpgcore:block/ruined_forge_plate",
+  "embers": "sovereignrpgcore:block/ruined_forge_embers"
+ },
+ "elements": [
+  {
+   "from": [
+    2,
+    0,
+    2
+   ],
+   "to": [
+    14,
+    4,
+    14
+   ],
+   "faces": {
+    "up": {
+     "texture": "#plate"
+    },
+    "down": {
+     "texture": "#bottom"
+    },
+    "north": {
+     "texture": "#front",
+     "uv": [
+      2,
+      10,
+      14,
+      14
+     ]
+    },
+    "south": {
+     "texture": "#side"
+    },
+    "east": {
+     "texture": "#side"
+    },
+    "west": {
+     "texture": "#side"
+    }
+   }
+  },
+  {
+   "from": [
+    3,
+    4,
+    4
+   ],
+   "to": [
+    13,
+    5,
+    12
+   ],
+   "faces": {
+    "up": {
+     "texture": "#plate"
+    },
+    "down": {
+     "texture": "#bottom"
+    },
+    "north": {
+     "texture": "#side"
+    },
+    "south": {
+     "texture": "#side"
+    },
+    "east": {
+     "texture": "#side"
+    },
+    "west": {
+     "texture": "#side"
+    }
+   }
+  },
+  {
+   "from": [
+    4,
+    5,
+    6
+   ],
+   "to": [
+    12,
+    10,
+    10
+   ],
+   "faces": {
+    "up": {
+     "texture": "#plate"
+    },
+    "down": {
+     "texture": "#bottom"
+    },
+    "north": {
+     "texture": "#side"
+    },
+    "south": {
+     "texture": "#side"
+    },
+    "east": {
+     "texture": "#side"
+    },
+    "west": {
+     "texture": "#side"
+    }
+   }
+  },
+  {
+   "from": [
+    0,
+    10,
+    3
+   ],
+   "to": [
+    16,
+    16,
+    13
+   ],
+   "faces": {
+    "up": {
+     "texture": "#plate"
+    },
+    "down": {
+     "texture": "#bottom"
+    },
+    "north": {
+     "texture": "#side"
+    },
+    "south": {
+     "texture": "#side"
+    },
+    "east": {
+     "texture": "#side"
+    },
+    "west": {
+     "texture": "#side"
+    }
+   }
+  },
+  {
+   "from": [
+    3,
+    16,
+    5
+   ],
+   "to": [
+    13,
+    18,
+    6
+   ],
+   "faces": {
+    "up": {
+     "texture": "#side"
+    },
+    "down": {
+     "texture": "#bottom"
+    },
+    "north": {
+     "texture": "#side"
+    },
+    "south": {
+     "texture": "#side"
+    },
+    "east": {
+     "texture": "#side"
+    },
+    "west": {
+     "texture": "#side"
+    }
+   }
+  },
+  {
+   "from": [
+    3,
+    16,
+    10
+   ],
+   "to": [
+    13,
+    18,
+    11
+   ],
+   "faces": {
+    "up": {
+     "texture": "#side"
+    },
+    "down": {
+     "texture": "#bottom"
+    },
+    "north": {
+     "texture": "#side"
+    },
+    "south": {
+     "texture": "#side"
+    },
+    "east": {
+     "texture": "#side"
+    },
+    "west": {
+     "texture": "#side"
+    }
+   }
+  },
+  {
+   "from": [
+    3,
+    16,
+    6
+   ],
+   "to": [
+    4,
+    18,
+    10
+   ],
+   "faces": {
+    "up": {
+     "texture": "#side"
+    },
+    "down": {
+     "texture": "#bottom"
+    },
+    "north": {
+     "texture": "#side"
+    },
+    "south": {
+     "texture": "#side"
+    },
+    "east": {
+     "texture": "#side"
+    },
+    "west": {
+     "texture": "#side"
+    }
+   }
+  },
+  {
+   "from": [
+    12,
+    16,
+    6
+   ],
+   "to": [
+    13,
+    18,
+    10
+   ],
+   "faces": {
+    "up": {
+     "texture": "#side"
+    },
+    "down": {
+     "texture": "#bottom"
+    },
+    "north": {
+     "texture": "#side"
+    },
+    "south": {
+     "texture": "#side"
+    },
+    "east": {
+     "texture": "#side"
+    },
+    "west": {
+     "texture": "#side"
+    }
+   }
+  },
+  {
+   "from": [
+    4,
+    16,
+    6
+   ],
+   "to": [
+    12,
+    17,
+    10
+   ],
+   "faces": {
+    "up": {
+     "texture": "#embers"
+    },
+    "down": {
+     "texture": "#bottom"
+    },
+    "north": {
+     "texture": "#side"
+    },
+    "south": {
+     "texture": "#side"
+    },
+    "east": {
+     "texture": "#side"
+    },
+    "west": {
+     "texture": "#side"
+    }
+   }
+  }
+ ]
+}

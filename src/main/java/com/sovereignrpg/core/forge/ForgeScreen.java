@@ -31,8 +31,7 @@ public class ForgeScreen extends AbstractContainerScreen<ForgeMenu> {
 
     @Override
     protected void renderLabels(GuiGraphics g, int mx, int my) {
-        String t = menu.tab() == 0 ? "Charm" : "Discharm";
-        g.drawString(font, Component.literal("Ruined Forge - " + t), 12, 31, 0xE8C25C, false);
+        g.drawString(font, Component.literal(menu.tab() == 0 ? "Charm" : "Discharm"), 14, 40, 0xE8C25C, false);
     }
 
     @Override
