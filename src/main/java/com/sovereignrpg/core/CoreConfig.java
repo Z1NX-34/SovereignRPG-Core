@@ -28,6 +28,8 @@ public final class CoreConfig {
     public static final Mode NOVICE, CHAMPION, SOVEREIGN;
     public static final ForgeConfigSpec.BooleanValue RING_RESTRICT;
     public static final ForgeConfigSpec.ConfigValue<String> RING_CLASS;
+    public static final ForgeConfigSpec.BooleanValue BOSS_BARS;
+    public static final ForgeConfigSpec.ConfigValue<String> NIGHTLORD_1, NIGHTLORD_2, MELKOR_1, MELKOR_2;
 
     static {
         ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
@@ -41,6 +43,14 @@ public final class CoreConfig {
         b.comment("Ring of the Seven Curses rule. Enigmatic Legacy hands the ring to everyone at spawn; Core removes it from every class except the one below.").push("cursed_ring");
         RING_RESTRICT = b.comment("Turn the rule on or off.").define("restrict", true);
         RING_CLASS = b.comment("The only class that keeps (and always wears) the ring. Class id, with or without namespace.").define("class", "cursed_god");
+        b.pop();
+
+        b.comment("Boss bar names and phases for Souls Like Bosses. Melkor gets two full bars like the other bosses.").push("boss_bars");
+        BOSS_BARS = b.comment("Turn the whole feature on or off.").define("enabled", true);
+        NIGHTLORD_1 = b.define("nightlord_phase_1", "God Of 7 Realms, The Knightmare");
+        NIGHTLORD_2 = b.define("nightlord_phase_2", "The Forgotten Name, Ez'Aethelgrim");
+        MELKOR_1 = b.define("melkor_phase_1", "Melkor");
+        MELKOR_2 = b.define("melkor_phase_2", "Goddess of Eternity");
         b.pop();
         SPEC = b.build();
     }
