@@ -40,6 +40,13 @@ public final class BossBars {
         if (e.getLevel().isClientSide()) return;
         String n = e.getEntity().getClass().getName();
         if ((n.equals(NIGHTLORD) || n.equals(MELKOR)) && !TRACKED.contains(e.getEntity())) TRACKED.add(e.getEntity());
+        if (n.equals(MELKOR) && CoreConfig.BOSS_BARS.get()) {
+            try {
+                bar(e.getEntity()).setName(title(CoreConfig.MELKOR_1.get()));
+            } catch (Throwable t) {
+                // ignore
+            }
+        }
     }
 
     @SubscribeEvent
@@ -97,12 +104,16 @@ public final class BossBars {
         return Component.literal(s).withStyle(ChatFormatting.WHITE, ChatFormatting.BOLD);
     }
 
+    private static Component title(String s, int rgb) {
+        return Component.literal(s).withStyle(st -> st.withColor(rgb).withBold(true));
+    }
+
     /** The mod writes its own names (phase 1, then phase 2 mid-transition); swap each for the configured one. */
     private static void nightlord(Entity boss) throws Exception {
         ServerBossEvent bar = bar(boss);
         String cur = bar.getName().getString();
-        if (cur.equals(NL_ORIG_1)) bar.setName(title(CoreConfig.NIGHTLORD_1.get()));
-        else if (cur.equals(NL_ORIG_2)) bar.setName(title(CoreConfig.NIGHTLORD_2.get()));
+        if (cur.equals(NL_ORIG_1)) bar.setName(title(CoreConfig.NIGHTLORD_1.get(), 0xFFD27A));
+        else if (cur.equals(NL_ORIG_2)) bar.setName(title(CoreConfig.NIGHTLORD_2.get(), 0xB8C4E0));
     }
 
     /**
@@ -110,14 +121,14 @@ public final class BossBars {
      * one bar over the whole pool. Phase 1 drains the first half, phase 2 refills and drains the second half.
      */
     private static void melkor(Entity boss) throws Exception {
-        if (!barActive(boss) || score(boss, "boss_active") != 1) return;
         ServerBossEvent bar = bar(boss);
-        int health = score(boss, "boss_health");
-        int floor = score(boss, "te_health");
-        int split = score(boss, "final_boss_attack_health");
         boolean two = boss.getTags().contains("boss_phase_2");
         String name = two ? CoreConfig.MELKOR_2.get() : CoreConfig.MELKOR_1.get();
         if (!bar.getName().getString().equals(name)) bar.setName(title(name));
+        if (!barActive(boss) || score(boss, "boss_active") != 1) return;
+        int health = score(boss, "boss_health");
+        int floor = score(boss, "te_health");
+        int split = score(boss, "final_boss_attack_health");
         int span = two ? split - floor : 500000 - split;
         int value = two ? health - floor : health - split;
         float p = span <= 0 ? 0.0F : Math.max(0.0F, Math.min(1.0F, (float) value / (float) span));

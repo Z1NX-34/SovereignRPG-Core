@@ -1,0 +1,16 @@
+{
+  "target_names": [
+    "God Of 7 Realms, The Knightmare"
+  ],
+  "disappear_delay": 0,
+  "bar": {
+    "color": "#A31621",
+    "background_color": "#67000000",
+    "reduction_color": "#E8C34A"
+  },
+  "text": {
+    "color": "#FFD27A",
+    "drop_shadow": true
+  },
+  "ornament_texture": "souls_combat_hud:bossbar_ornament"
+}

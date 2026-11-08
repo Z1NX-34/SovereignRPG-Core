@@ -1,0 +1,16 @@
+{
+  "target_names": [
+    "The Forgotten Name, Ez'Aethelgrim"
+  ],
+  "disappear_delay": 0,
+  "bar": {
+    "color": "#5B3FA8",
+    "background_color": "#67000000",
+    "reduction_color": "#E8C34A"
+  },
+  "text": {
+    "color": "#C9D3F0",
+    "drop_shadow": true
+  },
+  "ornament_texture": "souls_combat_hud:bossbar_ornament"
+}
