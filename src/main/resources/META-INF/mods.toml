@@ -49,3 +49,10 @@ mandatory=false
 versionRange="[0,)"
 ordering="AFTER"
 side="BOTH"
+
+[[dependencies.sovereignrpgcore]]
+modId="dog"
+mandatory=false
+versionRange="[0,)"
+ordering="AFTER"
+side="BOTH"

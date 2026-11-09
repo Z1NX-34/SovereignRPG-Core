@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    { "item": "dog:draconic_soul_fragment" },
+    { "item": "dog:draconic_soul_fragment" },
+    { "item": "dog:draconic_soul_fragment" },
+    { "item": "dog:draconic_soul_fragment" },
+    { "item": "minecraft:nether_star" },
+    { "item": "minecraft:echo_shard" }
+  ],
+  "result": {
+    "item": "dog:cosmic_worm",
+    "count": 1
+  }
+}
