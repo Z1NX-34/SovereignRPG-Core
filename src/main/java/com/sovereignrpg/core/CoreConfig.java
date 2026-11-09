@@ -30,6 +30,7 @@ public final class CoreConfig {
     public static final ForgeConfigSpec.ConfigValue<String> RING_CLASS;
     public static final ForgeConfigSpec.BooleanValue BOSS_BARS;
     public static final ForgeConfigSpec.ConfigValue<String> NIGHTLORD_1, NIGHTLORD_2, MELKOR_1, MELKOR_2;
+    public static final ForgeConfigSpec.BooleanValue SKRYTHE_BAR;
     public static final ForgeConfigSpec.BooleanValue DRAGON_CAMEO;
     public static final ForgeConfigSpec.ConfigValue<java.util.List<? extends String>> CAMEO_DRAGONS;
     public static final ForgeConfigSpec.BooleanValue HIDE_DEATH_TITLES;
@@ -55,6 +56,7 @@ public final class CoreConfig {
         NIGHTLORD_2 = b.define("nightlord_phase_2", "The Forgotten Name, Ez'Aethelgrim");
         MELKOR_1 = b.define("melkor_phase_1", "Melkor");
         MELKOR_2 = b.define("melkor_phase_2", "Goddess of Eternity");
+        SKRYTHE_BAR = b.comment("Give Skrythe (Monster Expansion) a boss bar. The mod has none, so the HUD and Boss Intros never see him as a boss.").define("skrythe_bar", true);
         HIDE_DEATH_TITLES = b.comment("Stop the big screen titles Souls Like Bosses shows when a boss dies (Boss Intros already shows a victory card).").define("hide_death_titles", true);
         DEATH_TITLES = b.comment("Title texts to drop, compared ignoring case.").defineList("death_titles",
                 java.util.List.of("NIGHTLORD SLAIN", "LORD OF CINDER FALLEN", "LORD OF TIME FALLEN"), o -> o instanceof String);
