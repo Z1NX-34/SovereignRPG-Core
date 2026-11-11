@@ -1,0 +1,151 @@
+{
+  "player_name": {
+    "enabled": false,
+    "offset": {
+      "x": 0,
+      "y": -10
+    }
+  },
+  "crest": {
+    "enabled": true,
+    "size": 32,
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "preview": {
+      "size": 32,
+      "offset": {
+        "x": 0,
+        "y": 0
+      },
+      "preview_model": {
+        "rotation": 340,
+        "size": 32,
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    "attributes": [
+      {
+        "type": "hunger",
+        "enabled": true,
+        "offset": {
+          "x": 0,
+          "y": 32
+        },
+        "text": {
+          "anchor": "OUTSIDE_LEFT",
+          "offset": {
+            "x": 0,
+            "y": 4
+          }
+        }
+      },
+      {
+        "type": "armor",
+        "enabled": true,
+        "offset": {
+          "x": 32,
+          "y": 32
+        },
+        "text": {
+          "anchor": "OUTSIDE_LEFT",
+          "offset": {
+            "x": 0,
+            "y": 4
+          }
+        }
+      },
+      {
+        "type": "thirst",
+        "enabled": true,
+        "offset": {
+          "x": 0,
+          "y": 18
+        },
+        "text": {
+          "anchor": "OUTSIDE_LEFT",
+          "offset": {
+            "x": 0,
+            "y": 4
+          }
+        }
+      },
+      {
+        "type": "private",
+        "enabled": true,
+        "offset": {
+          "x": 40,
+          "y": 0
+        }
+      }
+    ]
+  },
+  "gauges": {
+    "enabled": true,
+    "offset": {
+      "x": 40,
+      "y": 6
+    },
+    "row_gap": 3,
+    "elements": [
+      {
+        "type": "health",
+        "enabled": true,
+        "override_position": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        },
+        "bar": {
+          "color": "#C42026",
+          "background_color": "#B30E0C0E",
+          "reduction_color": "#ECE4D4"
+        },
+        "ornament_texture": "souls_combat_hud:status_bar_ornament"
+      },
+      {
+        "type": "stamina",
+        "enabled": true,
+        "override_position": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        },
+        "bar": {
+          "color": "#D6CEBC",
+          "background_color": "#B30E0C0E",
+          "reduction_color": "#C9A85C"
+        },
+        "ornament_texture": "souls_combat_hud:status_bar_ornament"
+      },
+      {
+        "type": "mana",
+        "enabled": true,
+        "override_position": false,
+        "offset": {
+          "x": 0,
+          "y": 0
+        },
+        "bar": {
+          "color": "#7896BE",
+          "background_color": "#B30E0C0E",
+          "reduction_color": "#C9A85C"
+        },
+        "ornament_texture": "souls_combat_hud:status_bar_ornament"
+      },
+      {
+        "type": "status_effects",
+        "override_position": false,
+        "enabled": true,
+        "offset": {
+          "x": 0,
+          "y": 4
+        }
+      }
+    ]
+  }
+}

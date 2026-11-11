@@ -4,12 +4,12 @@
   ],
   "disappear_delay": 0,
   "bar": {
-    "color": "#A31621",
-    "background_color": "#67000000",
-    "reduction_color": "#E8C34A"
+    "color": "#C42026",
+    "background_color": "#B30E0C0E",
+    "reduction_color": "#ECE4D4"
   },
   "text": {
-    "color": "#FFD27A",
+    "color": "#ECE4D4",
     "drop_shadow": true
   },
   "ornament_texture": "souls_combat_hud:bossbar_ornament"

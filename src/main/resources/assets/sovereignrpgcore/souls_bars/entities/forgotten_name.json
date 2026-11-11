@@ -5,11 +5,11 @@
   "disappear_delay": 0,
   "bar": {
     "color": "#5B3FA8",
-    "background_color": "#67000000",
-    "reduction_color": "#E8C34A"
+    "background_color": "#B30E0C0E",
+    "reduction_color": "#ECE4D4"
   },
   "text": {
-    "color": "#C9D3F0",
+    "color": "#ECE4D4",
     "drop_shadow": true
   },
   "ornament_texture": "souls_combat_hud:bossbar_ornament"

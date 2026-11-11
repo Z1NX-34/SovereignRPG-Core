@@ -31,6 +31,10 @@ public final class CoreConfig {
     public static final ForgeConfigSpec.BooleanValue BOSS_BARS;
     public static final ForgeConfigSpec.ConfigValue<String> NIGHTLORD_1, NIGHTLORD_2, MELKOR_1, MELKOR_2;
     public static final ForgeConfigSpec.BooleanValue SKRYTHE_BAR;
+    public static final ForgeConfigSpec.BooleanValue COMPASS_BRIDGE, COMPASS_DEATHS, WIPE_NEW_WORLD;
+    public static final ForgeConfigSpec.IntValue COMPASS_MAX_DISTANCE;
+    public static final ForgeConfigSpec.BooleanValue ARENA_NO_SPAWNS;
+    public static final ForgeConfigSpec.ConfigValue<String> ARENA_DIMENSION;
     public static final ForgeConfigSpec.BooleanValue DRAGON_CAMEO;
     public static final ForgeConfigSpec.ConfigValue<java.util.List<? extends String>> CAMEO_DRAGONS;
     public static final ForgeConfigSpec.BooleanValue HIDE_DEATH_TITLES;
@@ -66,6 +70,17 @@ public final class CoreConfig {
         DRAGON_CAMEO = b.define("enabled", true);
         CAMEO_DRAGONS = b.defineList("dragons",
                 java.util.List.of("aether_dragon:aetherdragon", "block_factorys_bosses:infernal_dragon", "monsterexpansion:skrythe"), o -> o instanceof String);
+        b.pop();
+
+        b.comment("Arena dimension (P1nero's Battle Field). Stops natural mob spawning there; spawn eggs, commands, spawners and boss summons still work.").push("arena");
+        ARENA_NO_SPAWNS = b.define("block_natural_spawns", true);
+        ARENA_DIMENSION = b.define("dimension", "pbf1:sanctum_of_the_battle1");
+        b.pop();
+        b.comment("Client UI tie-ins: Advanced Compass and Remnants Minimap.").push("ui");
+        COMPASS_BRIDGE = b.comment("Show Remnants Minimap markers and beacons on the Advanced Compass (only the current dimension).").define("compass_remnant_markers", true);
+        COMPASS_DEATHS = b.comment("Also show bloodstain (death) markers on the compass.").define("compass_show_bloodstains", true);
+        COMPASS_MAX_DISTANCE = b.comment("Hide markers farther than this many blocks from the compass. 0 = no limit.").defineInRange("compass_marker_max_distance", 0, 0, 1000000);
+        WIPE_NEW_WORLD = b.comment("When a brand-new single-player world is created, delete any Remnants Minimap map and markers left over from an older world with the same folder name.").define("wipe_remnant_data_for_new_worlds", true);
         b.pop();
         SPEC = b.build();
     }
